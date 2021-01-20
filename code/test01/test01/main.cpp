@@ -6,30 +6,40 @@
 //  Copyright © 2021 Alex. All rights reserved.
 //
 
-
-//本demo演示使用线程将nSum加到240，做法和课件上的不一样，因为他用Windows。
+//
+//  main.cpp
+//  test01
+//
+//  Created by 王冬晖 on 2021/1/20.
+//  Copyright © 2021 Alex. All rights reserved.
+//
+#include <stdio.h>
 #include <iostream>
 #include <thread>
 
 using namespace std;
+//课程demo
+//实现方法和课件上不同是因为使用Mac不是Windows
 
-int nSum = 0;
+int nSum = 0 ;
 int NUMBER = 80;
 
 void Accumulate(){
-    for(int i=0;i<NUMBER;i++){
-        int iCopy = nSum;
-        nSum = iCopy+1;
-    }
+  for (int i = 0 ; i < NUMBER ; i++){
+    int iCopy = nSum;
+    nSum = iCopy+1;
+  }
 }
 
-int main(int argc, const char * argv[]) {
-    thread thread_01(Accumulate);
-    thread thread_02(Accumulate);
-    thread thread_03(Accumulate);
-    thread_01.join();
-    thread_02.join();
-    thread_03.join();
-    printf("%d\n",nSum);
-    return 0;
+int main(int argc, char* argv[]){
+  thread thread01(Accumulate);
+  thread thread02(Accumulate);
+  thread thread03(Accumulate);
+
+  thread01.join();
+  thread02.join();
+  thread03.join();
+
+  printf("%d\n",nSum);
+  return 0;
 }
