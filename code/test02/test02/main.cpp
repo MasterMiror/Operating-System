@@ -15,18 +15,12 @@ using namespace std;
 
 
 int main(int argc, const char * argv[]) {
-    pid_t pid, pid_1, pid_2;
-    pid = fork();
-    
-    if(pid == 0){
-        pid_1 = getpid();
-        printf("pid_1 = %d \n",pid_1);
-        sleep(10);
-    }
-    if(pid > 0){
-        pid_2 = wait(NULL);
-        printf("pid_2 = %d \n",pid_2);
-    }
-    exit(0);
-    
-}
+    int a=2,b=-1,c=2;
+    if(a<b)
+        if(b<0)
+            c=0;
+        else c+=1;
+    cout<<c<<endl;
+    return 0;
+
+        }
